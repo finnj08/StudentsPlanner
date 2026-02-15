@@ -1,10 +1,20 @@
 package com.finn.juenger;
 
-import java.time.LocalDate;
+import javax.swing.*;
+import com.formdev.flatlaf.*;
+import com.formdev.flatlaf.themes.FlatMacDarkLaf;
+import com.formdev.flatlaf.themes.FlatMacLightLaf;
+import com.jthemedetecor.OsThemeDetector;
 
 public class Main {
     static void main() {
-        Homework hm1 = new Homework("1", LocalDate.of(2027,03,14));
-        IO.println(hm1.getRemainingDays());
+        final OsThemeDetector detector = OsThemeDetector.getDetector();
+        final boolean isDarkThemeUsed = detector.isDark();
+        if (isDarkThemeUsed) {
+            FlatMacDarkLaf.setup();
+        } else {
+            FlatMacLightLaf.setup();
+        }
+        SwingUtilities.invokeLater(App::new);
     }
 }
