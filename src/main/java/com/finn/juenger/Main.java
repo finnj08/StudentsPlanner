@@ -9,6 +9,7 @@ import com.jthemedetecor.OsThemeDetector;
 public class Main {
     static void main() {
         final OsThemeDetector detector = OsThemeDetector.getDetector();
+        IO.println("test");
         final boolean isDarkThemeUsed = detector.isDark();
         if (isDarkThemeUsed) {
             FlatMacDarkLaf.setup();
